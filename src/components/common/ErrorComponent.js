@@ -2,7 +2,7 @@ import React from "react";
 
 const ErrorComponent = () => {
   return (
-    <div className="p-5 bg-red-100 rounded-lg text-ref-500">
+    <div className="p-5 text-red-500 bg-red-100 rounded-lg">
       Look like component is error
     </div>
   );

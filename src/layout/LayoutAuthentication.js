@@ -11,7 +11,7 @@ const LayoutAuthentication = (props) => {
       <img
         src="/ellipse.png"
         alt="bg"
-        className="absolute hidden lg:block bottom-0 left-0 right-0 pointer-events-none z-[-1] w-full h-full"
+        className="hidden lg:block absolute bottom-0 left-0 right-0 pointer-events-none z-[-1]"
       />
       <Link to="/" className="inline-block mb-5 lg:mb-16">
         <img srcSet="/logo.png 2x" alt="crowfunding-app" />
@@ -25,12 +25,10 @@ const LayoutAuthentication = (props) => {
     </div>
   );
 };
-
 LayoutAuthentication.propTypes = {
   heading: PropTypes.string,
   children: PropTypes.node,
 };
-
 export default withErrorBoundary(LayoutAuthentication, {
   FallbackComponent: ErrorComponent,
 });

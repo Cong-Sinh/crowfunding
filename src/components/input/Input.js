@@ -2,7 +2,9 @@ import React from 'react';
 import { useController } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { withErrorBoundary } from 'react-error-boundary';
-import ErrorComponent from '../common/ErrorComponent';
+import ErrorComponent from 'components/common/ErrorComponent';
+import classNames from 'utils/classNames';
+
 const Input = (props) => {
   const { control, name, type = 'text', error = '', placeholder = '', children, ...rest } = props;
   const { field } = useController({
@@ -15,10 +17,11 @@ const Input = (props) => {
       <input
         id={name}
         type={type}
-        className={`w-full px-6 py-4 text-sm font-medium border full border-strock rounded-xl 
-         placeholder:text-text4 bg-transparent dark:placeholder:text-text2 dark:text-white
-        ${children ? 'pr-16' : ''} 
-         ${error.length > 0 ? 'border-error text-error' : 'border-strock text-text1 dark:border-darkStroke'}`}
+        className={classNames(
+          'w-full px-6 py-4 text-sm font-medium border rounded-xl placeholder:text-text4 dark:placeholder:text-text2 dark:text-white bg-transparent',
+          error.length > 0 ? 'border-error text-error' : 'border-strock text-text1 dark:border-darkStroke',
+          children ? 'pr-16' : '',
+        )}
         placeholder={error.length <= 0 ? placeholder : ''}
         {...rest}
         {...field}
@@ -28,18 +31,18 @@ const Input = (props) => {
           {error}
         </span>
       )}
-      <div className="absolute cursor-pointer select-none right-6 top-2/4 -translate-y-2/4">{children}</div>
+      {children && (
+        <span className="absolute cursor-pointer select-none right-6 top-2/4 -translate-y-2/4">{children}</span>
+      )}
     </div>
   );
 };
-
 Input.propTypes = {
-  type: PropTypes.string,
   name: PropTypes.string,
-  control: PropTypes.any.isRequired,
+  type: PropTypes.string,
   error: PropTypes.string,
+  control: PropTypes.any.isRequired,
 };
-
 export default withErrorBoundary(Input, {
   FallbackComponent: <ErrorComponent></ErrorComponent>,
 });
