@@ -1,27 +1,27 @@
-import useToggleValue from "hooks/useToggleValue";
-import React from "react";
-import LayoutAuthentication from "layout/LayoutAuthentication";
-import FormGroup from "components/common/FormGroup";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import { Label } from "components/label";
-import { Input } from "components/input";
-import { IconEyeToggle } from "components/icons";
-import { Checkbox } from "components/checkbox";
-import { Button } from "components/button";
+import useToggleValue from 'hooks/useToggleValue';
+import React from 'react';
+import LayoutAuthentication from 'layout/LayoutAuthentication';
+import FormGroup from 'components/common/FormGroup';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import { Label } from 'components/label';
+import { Input } from 'components/input';
+import { IconEyeToggle } from 'components/icons';
+import { Checkbox } from 'components/checkbox';
+import { Button } from 'components/button';
 
 const schema = yup.object({
-  name: yup.string().required("This field is required"),
+  name: yup.string().required('This field is required'),
   email: yup
     .string()
-    .email("Invalid email address")
-    .required("This field is required"),
+    .email('Invalid email address')
+    .required('This field is required'),
   password: yup
     .string()
-    .required("This field is required")
-    .min(8, "Password must be 8 character "),
+    .required('This field is required')
+    .min(8, 'Password must be 8 character '),
 });
 
 const SignUpPage = () => {
@@ -31,10 +31,10 @@ const SignUpPage = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-    mode: "onSubmit",
+    mode: 'onSubmit',
   });
   const handleSignUp = (values) => {
-    console.log("handleSignUp ~ values", values);
+    console.log('handleSignUp ~ values', values);
   };
   const { value: acceptTerm, handleToggleValue: handleToggleTerm } =
     useToggleValue();
@@ -43,7 +43,7 @@ const SignUpPage = () => {
   return (
     <LayoutAuthentication heading="SignUp">
       <p className="mb-6 text-xs font-normal text-center lg:text-sm text-text3 lg:mb-8">
-        Already have an account?{" "}
+        Already have an account?{' '}
         <Link to="/sign-in" className="font-medium underline text-primary">
           Sign in
         </Link>
@@ -80,7 +80,7 @@ const SignUpPage = () => {
           <Input
             control={control}
             name="password"
-            type={`${showPassword ? "text" : "password"}`}
+            type={`${showPassword ? 'text' : 'password'}`}
             placeholder="Create a password"
             error={errors.password?.message}
           >
@@ -95,15 +95,15 @@ const SignUpPage = () => {
             <p className="flex-1 text-xs lg:text-sm text-text2 dark:text-text3">
               I agree to the
               <span className="underline text-secondary">
-                {" "}
+                {' '}
                 Terms of Use
-              </span>{" "}
+              </span>{' '}
               and have read and understand the
               <span className="underline text-secondary"> Privacy policy.</span>
             </p>
           </Checkbox>
         </div>
-        <Button className="w-full bg-primary" type="submit">
+        <Button className="w-full" kind="primary" type="submit">
           Create my account
         </Button>
       </form>
