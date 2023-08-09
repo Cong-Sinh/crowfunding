@@ -8,46 +8,44 @@ import React, { Fragment } from 'react';
 const CampaignPage = () => {
   return (
     <Fragment>
-      <div className="px-10 py-8 mb-10 bg-white rounded-3xl">
-        <div className="flex items-center justify-between">
-          <div className="flex items-start gap-x-6">
-            <div className="flex items-center justify-center text-white rounded-full bg-opacity-60 bg-secondary w-14 h-14">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 6v12m6-6H6"
-                />
-              </svg>
-            </div>
-            <div className="flex-1">
-              <div className="text-[22px] font-semibold mb-2">
-                Create Your campaign
-              </div>
-              <p className="mb-2 text-sm text-text3">
-                Jump right into editor and create your first{' '}
-              </p>
-              <a className="text-sm text-primary" href="/">
-                Need any help?
-              </a>
-            </div>
+      <div className="flex items-center justify-between px-10 py-8 mb-10 bg-white rounded-3xl">
+        <div className="flex items-start gap-x-6">
+          <div className="flex items-center justify-center text-white rounded-full w-14 h-14 bg-secondary bg-opacity-60">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+              />
+            </svg>
           </div>
-          <Button
-            type="button"
-            kind="ghost"
-            className="px-8"
-            href="/start-campaign"
-          >
-            Create Campaign
-          </Button>
+          <div className="flex-1">
+            <h1 className="text-[22px] font-semibold mb-2">
+              Create Your Campaign
+            </h1>
+            <p className="mb-2 text-sm text-text3">
+              Jump right into our editor and create your first Virtue campaign!
+            </p>
+            <a href="/" className="text-sm text-primary">
+              Need any help? Learn More...
+            </a>
+          </div>
         </div>
+        <Button
+          type="button"
+          kind="ghost"
+          className="px-8"
+          href="/start-campaign"
+        >
+          Create campaign
+        </Button>
       </div>
       <Heading number={4}>Your campaign</Heading>
       <CampaignGrid type="secondary">
@@ -57,20 +55,18 @@ const CampaignPage = () => {
         <CampaignFeature></CampaignFeature>
       </CampaignGrid>
       <div className="mt-10 text-center"></div>
-      <Button kind="ghost" className="flex items-center px-8 mx-auto">
+      <Button kind="ghost" className="px-8 mx-auto">
         <span>See more</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="w-4 h-4 mb-[2px]"
+          className="w-5 h-5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
         >
           <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M12 6v12m6-6H6"
+            fillRule="evenodd"
+            d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+            clipRule="evenodd"
           />
         </svg>
       </Button>

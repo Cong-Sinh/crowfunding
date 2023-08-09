@@ -1,8 +1,8 @@
 import { Button } from 'components/button';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import DashboardFund from './DashboardFund';
 import DashboardSearch from './DashboardSearch';
-import { Link } from 'react-router-dom';
 
 const DashboardTopbar = () => {
   return (
@@ -18,7 +18,7 @@ const DashboardTopbar = () => {
       <div className="flex items-center justify-end flex-1 gap-x-10">
         <DashboardFund></DashboardFund>
         <Button
-          className=" px-7"
+          className="px-7"
           type="button"
           href="/start-campaign"
           kind="secondary"

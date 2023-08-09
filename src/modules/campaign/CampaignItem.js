@@ -1,20 +1,23 @@
+import { IconFolder } from 'components/icons';
 import React from 'react';
-import CampCategory from './pats/CampCategory';
-import CampMeta from './pats/CampMeta';
-import CampDescription from './pats/CampDescription';
-import CampTitle from './pats/CampTitle';
-import CampAuthor from './pats/CampAuthor';
-import CampImage from './pats/CampImage';
+import { Link } from 'react-router-dom';
+import CampAuthor from './parts/CampAuthor';
+import CampCategory from './parts/CampCategory';
+import CampDesc from './parts/CampDesc';
+import CampImage from './parts/CampImage';
+import CampMeta from './parts/CampMeta';
+import CampTitle from './parts/CampTitle';
 
-const campaignItem = () => {
+const CampaignItem = () => {
   return (
     <div>
       <CampImage></CampImage>
       <div className="px-5 py-4">
         <CampCategory></CampCategory>
         <CampTitle>Powered Kits Learning Boxes</CampTitle>
-        <CampDescription></CampDescription>
-        Fun, durable and resabli boxes with
+        <CampDesc>
+          Fun, durable and reusable boxes with eco-friendly options.
+        </CampDesc>
         <div className="flex items-start justify-between mb-5 gap-x-5">
           <CampMeta></CampMeta>
           <CampMeta></CampMeta>
@@ -25,4 +28,4 @@ const campaignItem = () => {
   );
 };
 
-export default campaignItem;
+export default CampaignItem;

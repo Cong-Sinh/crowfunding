@@ -1,5 +1,4 @@
-import { defaultImage } from 'constants/Global';
-import { v4 } from 'uuid';
+import { defaultImage } from 'constants/global';
 import React from 'react';
 
 const CampViewAuthor = () => {
@@ -18,7 +17,7 @@ const CampViewAuthor = () => {
               .fill(0)
               .map((item, index) => (
                 <svg
-                  key={v4()}
+                  key={index}
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-5 h-5 text-yellow-500"
                   viewBox="0 0 20 20"

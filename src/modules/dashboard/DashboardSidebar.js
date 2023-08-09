@@ -9,7 +9,6 @@ import {
 } from 'components/icons';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import classNames from 'utils/classNames';
 const sidebarLinks = [
   {
     icon: <IconDashboard></IconDashboard>,
@@ -45,7 +44,7 @@ const sidebarLinks = [
   {
     icon: <IconDarkmode></IconDarkmode>,
     title: 'Light/Dark',
-    url: '#',
+    url: '/#',
     onClick: () => {},
   },
 ];
@@ -59,7 +58,9 @@ const DashboardSidebar = () => {
           to={link.url}
           key={link.title}
           className={({ isActive }) =>
-            isActive ? `${navlinkClass} bg-primary bg-opacity-20 text-primary` : `${navlinkClass} text-icon-color`
+            isActive
+              ? `${navlinkClass} text-primary bg-primary bg-opacity-20`
+              : `${navlinkClass} text-icon-color`
           }
         >
           <span>{link.icon}</span>
