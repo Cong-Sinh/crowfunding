@@ -9,7 +9,7 @@ import Gap from 'components/common/Gap';
 
 const DashboardPage = () => {
   return (
-    <LayoutDashboard>
+    <Fragment>
       <Heading number={4}>Your campaing</Heading>
       <CampaignFeature></CampaignFeature>
       <Gap></Gap>
@@ -30,7 +30,7 @@ const DashboardPage = () => {
             <CampaignItem key={v4()}></CampaignItem>
           ))}
       </CampaignGrid>
-    </LayoutDashboard>
+    </Fragment>
   );
 };
 

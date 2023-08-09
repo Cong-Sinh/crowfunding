@@ -3,11 +3,11 @@ import Heading from 'components/common/Heading';
 import LayoutDashboard from 'layout/LayoutDashboard';
 import CampaignFeature from 'modules/campaign/CampaignFeature';
 import CampaignGrid from 'modules/campaign/CampaignGrid';
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const CampaignPage = () => {
   return (
-    <LayoutDashboard>
+    <Fragment>
       <div className="px-10 py-8 mb-10 bg-white rounded-3xl">
         <div className="flex items-center justify-between">
           <div className="flex items-start gap-x-6">
@@ -74,7 +74,7 @@ const CampaignPage = () => {
           />
         </svg>
       </Button>
-    </LayoutDashboard>
+    </Fragment>
   );
 };
 
