@@ -20,7 +20,7 @@ const DashboardTopbar = () => {
         <Button
           className=" px-7"
           type="button"
-          href="start-campaign"
+          href="/start-campaign"
           kind="secondary"
         >
           Start a campaign

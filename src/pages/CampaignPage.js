@@ -43,7 +43,7 @@ const CampaignPage = () => {
             type="button"
             kind="ghost"
             className="px-8"
-            href="start-campaign"
+            href="/start-campaign"
           >
             Create Campaign
           </Button>
