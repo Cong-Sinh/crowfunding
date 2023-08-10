@@ -1,32 +1,26 @@
-import FormGroup from 'components/common/FormGroup';
-import FormRow from 'components/common/FormRow';
-import { Dropdown } from 'components/dropdown';
-import { Input, Textarea } from 'components/input';
-import { Label } from 'components/label';
-import React, { useMemo, useState } from 'react';
-import { useForm } from 'react-hook-form';
-import ReactQuill, { Quill } from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import ImageUploader from 'quill-image-uploader';
-import axios from 'axios';
-import { Button } from 'components/button';
-import { useEffect } from 'react';
 import useOnChange from 'hooks/useOnChange';
-import { toast } from 'react-toastify';
-import DatePicker from 'react-datepicker';
-import { apiURL, imgbbAPI } from 'config/config';
-
-import 'react-datepicker/dist/react-datepicker.css';
+import ReactQuill, { Quill } from 'react-quill';
+import React, { useMemo, useState } from 'react';
+import ImageUploader from 'quill-image-uploader';
 import ImageUpload from 'components/image/ImageUpload';
+import FormRow from 'components/common/FormRow';
+import FormGroup from 'components/common/FormGroup';
+import axios from 'axios';
+import { useForm } from 'react-hook-form';
+import { useEffect } from 'react';
+import { toast } from 'react-toastify';
+import { Label } from 'components/label';
+import { Input, Textarea } from 'components/input';
+import { Dropdown } from 'components/dropdown';
+import { Button } from 'components/button';
+import { apiURL, imgbbAPI } from 'config/config';
+import 'react-quill/dist/quill.snow.css';
+import ReactDatePicker from 'react-datepicker';
 Quill.register('modules/imageUploader', ImageUploader);
 
 const categoriesData = ['architecture', 'education'];
 
 const CampaignAddNew = () => {
-  useEffect(() => {
-    toast.success('Create campaign successfully');
-  });
-
   const { handleSubmit, control, setValue, reset, watch } = useForm();
   const getDropdownLabel = (name, defaultValue = '') => {
     const value = watch(name) || defaultValue;
@@ -247,7 +241,7 @@ const CampaignAddNew = () => {
             <FormGroup>
               <Label>Start Date</Label>
 
-              <DatePicker
+              <ReactDatePicker
                 onChange={setStartDate}
                 value={startDate}
                 format="dd-MM-yyyy"
@@ -255,7 +249,7 @@ const CampaignAddNew = () => {
             </FormGroup>
             <FormGroup>
               <Label>End Date</Label>
-              <DatePicker
+              <ReactDatePicker
                 onChange={setEndDate}
                 value={endDate}
                 format="dd-MM-yyyy"

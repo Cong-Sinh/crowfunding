@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import React from "react";
+import { Link, Outlet } from "react-router-dom";
 
-const LayoutPayment = ({ back = '/' }) => {
+const LayoutPayment = ({ back = "/" }) => {
   return (
     <div className="p-10">
       <div className="max-w-[1170px] mx-auto">

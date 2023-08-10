@@ -1,13 +1,13 @@
-import { Checkbox } from 'components/checkbox';
-import FormGroup from 'components/common/FormGroup';
-import FormRow from 'components/common/FormRow';
-import { Dropdown } from 'components/dropdown';
-import { Input } from 'components/input';
-import { Label } from 'components/label';
-import ContributionSummury from 'modules/payment/ContributionSummury';
-import Payment from 'modules/payment/Payment';
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import { Checkbox } from "components/checkbox";
+import FormGroup from "components/common/FormGroup";
+import FormRow from "components/common/FormRow";
+import { Dropdown } from "components/dropdown";
+import { Input } from "components/input";
+import { Label } from "components/label";
+import ContributionSummury from "modules/payment/ContributionSummury";
+import Payment from "modules/payment/Payment";
+import React from "react";
+import { useForm } from "react-hook-form";
 
 const ShippingPage = () => {
   const { control } = useForm();

@@ -16,7 +16,7 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <App />
-      <ToastContainer bodyClassName={'font-primary text-sm'} />
+      <ToastContainer bodyClassName="font-primary text-sm"></ToastContainer>
     </BrowserRouter>
   </Provider>,
 );
