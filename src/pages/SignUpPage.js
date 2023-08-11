@@ -13,6 +13,7 @@ import { Checkbox } from 'components/checkbox';
 import { Button } from 'components/button';
 import { useDispatch } from 'react-redux';
 import { authRegister } from 'store/auth/auth-slice';
+import { permissions } from 'constants/permissions';
 
 const schema = yup.object({
   name: yup.string().required('This field is required'),
@@ -39,7 +40,8 @@ const SignUpPage = () => {
   const dispatch = useDispatch();
   const handleSignUp = async (values) => {
     try {
-      dispatch(authRegister(values));
+      dispatch(authRegister({ ...values, permissions: [] }));
+
       reset({});
     } catch (error) {
       console.log(error);
