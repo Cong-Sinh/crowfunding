@@ -1,7 +1,13 @@
 import { toast } from 'react-toastify';
-import { call } from 'redux-saga/effects';
-import { saveToken } from 'utils/auth';
-import { requestAuthLogin, requestAuthRegister } from './auth-requests';
+import { call, put } from 'redux-saga/effects';
+import { logOut, saveToken } from 'utils/auth';
+import {
+  requestAuthFetchMe,
+  requestAuthLogin,
+  requestAuthRefreshToken,
+  requestAuthRegister,
+} from './auth-requests';
+import { authUpdateUser } from './auth-slice';
 
 export default function* handleAuthRegister(action) {
   const { payload } = action;
@@ -21,8 +27,58 @@ function* handleAuthLogin({ payload }) {
     // accessToken, refreshToken
     if (response.data.accessToken && response.data.refreshToken) {
       saveToken(response.data.accessToken, response.data.refreshToken);
+      yield call(handleAuthFetchMe, { payload: response.data.accessToken });
     }
-    yield 1;
+  } catch (error) {
+    const response = error.response.data;
+    if (response.statusCode === 403) {
+      toast.error(response.error.message);
+      return;
+    }
+  }
+}
+
+function* handleAuthFetchMe({ payload }) {
+  try {
+    const response = yield call(requestAuthFetchMe, payload);
+    if (response.status === 200) {
+      yield put(
+        authUpdateUser({
+          user: response.data,
+          accessToken: payload,
+        }),
+      );
+    }
   } catch (error) {}
 }
-export { handleAuthLogin };
+
+function* handleAuthRefreshToken({ payload }) {
+  try {
+    const response = yield call(requestAuthRefreshToken, payload);
+    if (response.data) {
+      saveToken(response.data.accessToken, response.data.refreshToken);
+      yield call(handleAuthFetchMe, {
+        payload: response.data.accessToken,
+      });
+    } else {
+      yield handleAuthLogOut();
+    }
+  } catch (error) {}
+}
+
+function* handleAuthLogOut() {
+  yield put(
+    authUpdateUser({
+      user: undefined,
+      accessToken: null,
+    }),
+  );
+  logOut();
+}
+
+export {
+  handleAuthLogin,
+  handleAuthFetchMe,
+  handleAuthRefreshToken,
+  handleAuthLogOut,
+};
